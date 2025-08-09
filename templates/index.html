@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="top-controls">
+            <button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+            <select id="languageSelect" class="language-select">
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
+
+        <h1 data-translate="title"><i class="fas fa-leaf"></i> Plant Disease Assistant</h1>
+        
+        <div class="upload-section card-effect">
+            <h2 data-translate="upload-title"><i class="fas fa-upload"></i> Upload Plant Image</h2>
+            <p data-translate="upload-description">Upload an image of a plant leaf to detect diseases and get treatment recommendations.</p>
+            
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="upload-container" id="dropArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text" data-translate="drag-drop">Drag & Drop an image or click to browse</div>
+                    <div class="file-types" data-translate="supported-files">Supported file types: JPG, JPEG, PNG</div>
+                    <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;">
+                    <button type="button" id="browseBtn" class="upload-btn" data-translate="browse-btn">
+                        <i class="fas fa-folder-open"></i> Browse Files
+                    </button>
+                </div>
+                
+                <div id="previewContainer" class="preview-container">
+                    <h3 data-translate="preview">Preview</h3>
+                    <img id="imagePreview" class="preview-image" src="#" alt="Preview">
+                    <div class="preview-controls">
+                        <button type="button" id="changeBtn" class="upload-btn" data-translate="change-image">
+                            <i class="fas fa-exchange-alt"></i> Change Image
+                        </button>
+                        <button type="submit" id="detectBtn" class="upload-btn" data-translate="detect-disease">
+                            <i class="fas fa-search"></i> Detect Disease
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- <div class="features-section card-effect">
+            <h2 data-translate="features-title"><i class="fas fa-star"></i> Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                    <h3 data-translate="feature-1-title">Disease Detection</h3>
+                    <p data-translate="feature-1-desc">Accurately identifies various plant diseases using advanced AI.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book-medical"></i></div>
+                    <h3 data-translate="feature-2-title">Treatment Guidance</h3>
+                    <p data-translate="feature-2-desc">Get detailed information about disease management and treatment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <h3 data-translate="feature-3-title">AI Assistant</h3>
+                    <p data-translate="feature-3-desc">Ask questions about detected diseases and get expert answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3 data-translate="feature-4-title">Multilingual Support</h3>
+                    <p data-translate="feature-4-desc">Access information in multiple languages for better understanding.</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="about-section card-effect">
+    <h2 data-translate="about-title"><i class="fas fa-info-circle"></i> About This Project</h2>
+    
+    <div class="about-content">
+        <div class="about-block">
+            <h3><i class="fas fa-brain"></i> How It Works</h3>
+            <p>This Plant Disease Assistant uses an EfficientNet-B2 deep learning model trained on 9 different crops and their associated diseases. The model analyzes leaf images using computer vision techniques to identify patterns associated with different plant diseases.</p>
+        </div>
+        
+        <div class="about-block">
+            <h3><i class="fas fa-cogs"></i> Technology Stack</h3>
+            <p>Built with PyTorch for the AI model, Flask for the web framework, and Google's Gemini API for generating disease information. The model achieves over 95% accuracy in identifying plant diseases across Apple, Bell Pepper, Cherry, Corn, Grape, Peach, Potato, Strawberry, and Tomato crops.</p>
+        </div>
+        
+        <div class="about-block">
+            <h3><i class="fas fa-user-check"></i> How To Use</h3>
+            <p>Simply upload a clear image of a plant leaf showing disease symptoms. For best results, ensure the leaf is well-lit and the image is focused. After detection, you can ask the AI assistant specific questions about the disease or request information in your preferred language.</p>
+        </div>
+        
+        <div class="about-block">
+            <h3><i class="fas fa-code"></i> Development</h3>
+            <p>This project combines transfer learning with custom attention mechanisms to improve classification accuracy. The model was trained on thousands of images from the Plant Village dataset, using techniques like data augmentation and label smoothing to enhance performance.</p>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="copyright">
+            &copy; 2025 Plant Disease Assistant. All Rights Reserved.
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/abuzaid01" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i> Connect on LinkedIn
+            </a>
+        </div>
+    </div>
+    <div class="footer-credits">
+        Made with <i class="fas fa-heart"></i> by Abuzaid
+    </div>
+</footer>
+</body>
+</html>

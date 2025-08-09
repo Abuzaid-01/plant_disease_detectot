@@ -1,0 +1,10 @@
+Flask
+Langchain
+Pillow
+requests
+python-dotenv
+torch
+torchvision
+numpy
+opencv-python
+flask-cors
